@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Navbar</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+        nav div{
+            border: 1px solid red;
+            width:150px;
+            margin-bottom: 20px;
+            padding: 5px;
+            border-radius: 20px;
+            background-color: yellow;
+            font-size: 20px;
+            transition: 2s;
+        }
+        #icon{
+            color: red;
+            font-weight: bold;
+        }
+        nav div:hover{
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            transition: 2s;
+        }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div>
+                <span id="icon" class="bi bi-bell"></span> <span>Notification</span>
+            </div>
+            <div>
+                <span id="icon" class="bi bi-alarm-fill"></span> <span>Alerts</span>
+            </div>
+            <div>
+                <span id="icon" class="bi bi-youtube"></span> <span>Youtube</span>
+            </div>
+        </nav>
+    </body>
+</html>

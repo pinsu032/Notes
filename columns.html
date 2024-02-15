@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Columns</title>
+        <style>
+            nav div{
+                border: 2px solid black;
+                background-color: tomato;
+                color: white;
+                padding: 5px;
+                width:150px;
+            }
+            @media  screen and (orientation : landscape) {
+                nav{
+                    display: flex;
+                }
+                nav div{
+                    margin-right: 30px;
+                }
+            }
+            @media screen and (orientation : portrait) {
+                nav{
+                    display: flex;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div>Home</div>
+            <div>About</div>
+            <div>Contact</div>
+        </nav>
+    </body>
+</html>

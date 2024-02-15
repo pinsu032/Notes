@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Layout</title>
+        <style>
+            header,footer{
+                background-color: tomato;
+                color: white;
+                text-align: center;
+                padding:15px;
+                border: 3px dashed black;
+                border-radius: 10px;
+            }
+            section{
+                height: 400px;
+                display: grid;
+                grid-template-columns: 3fr 7fr 2fr;
+                margin-top: 20px;
+            }
+            figure{
+                height: 150px;
+                width: 100px;
+                border: 2px dotted red;
+                padding: 10px;
+            }
+            aside{
+                border:2px dotted red;
+                height: 70px;
+                padding: 20px;
+            }
+            article{
+                background-color: red;
+                width: 200px;
+                color:white;
+                padding:10px;
+                border: 2px solid red;
+                border-radius: 20px;
+            }
+            nav div{
+                background-color: red;
+                color: white;
+                padding: 5px;
+                margin-top: 10px;
+                width:150px;
+                border-radius: 20px;
+                margin-left: -30px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            Amazon Shopping
+        </header>
+        <section>
+            <nav>
+                <menu>
+                    <div>Home</div>
+                    <div>Electronics</div>
+                    <div>FootWear</div>
+                    <div>Fashion</div>
+                </menu>
+            </nav>
+            <main>
+                <div>Shopping | online</div>
+                <figure>
+                    Image
+                    <figcaption>Samsung TV</figcaption>
+                </figure>
+                <article>
+                    Sale on 02-01-2024
+                </article>
+                <div>Sales</div>
+            </main>
+            <aside>
+                ads...
+            </aside>
+        </section>
+        <footer>
+           &copy; copyright 2022
+        </footer>
+    </body>
+</html>
