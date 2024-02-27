@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <form #frm="ngForm" (submit)="submitProduct(frm.value)">
+        <h2>Add Products</h2>
+    <dl>
+        <dt>Name</dt>
+        <dd><input type="text" ngModel #name="ngModel" name="name"></dd>
+        <dt>Price</dt>
+        <dd><input type="text" ngModel #price="ngModel" name="price"></dd>
+    </dl>
+    <button  class="btn btn-primary">Add</button>
+    </form>
+    <h2>Products</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Index</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Even</th>
+                <th>Odd</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="{'od':o,'evn':e}" *ngFor="let item of products; let i=index; let f=first; let l=last; let e=even; let o=odd; trackBy:trackChanges">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{i}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+                <td>{{e}}</td>
+                <td>{{o}}</td>
+                <td>
+                    <button (click)="deleteClick(i)" class="btn btn-danger">
+                        <span class="bi bi-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>

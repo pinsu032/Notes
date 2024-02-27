@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Input</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    </head>
+    <body class="container-fluid">
+        <div class="mt-2">
+            <button class="btn btn-primary" data-bs-target="#register" data-bs-toggle="modal">Register Product</button>
+        <div class="modal fade" id="register">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-content">
+                        <h3>Product Registration</h3>
+                        <button class="btn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-2">
+                            <label class="form-label">Name</label>
+                            <div>
+                                <input type="text" class="form-control" id="productName">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">price</label>
+                            <div>
+                                <input type="text" class="form-control" id="productPrice">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Shipped To</label>
+                            <div>
+                                <select class="form-select" id="productCity">
+                                    <option>Delhi</option>
+                                    <option>Hyd</option>
+                                    <option>Chennai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Stock</label>
+                            <div class="form-switch">
+                                <input type="checkbox" class="form-check-input" class="form-control" id="productStock">
+                            </div>
+                        </div>
+                    </div>
+                   <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Register</button>
+                        <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>

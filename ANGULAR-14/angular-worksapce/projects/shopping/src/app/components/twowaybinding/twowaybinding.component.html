@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <form (submit)="registerClick(frm.value)" #frm="ngForm">
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" required ngModel #name="ngModel" name="name"  class="form-control"></dd>
+                    <dt>Price</dt>
+                    <dd><input type="number" required ngModel #price="ngModel" name="price"  class="form-control"></dd>
+                    <dt>Stock</dt>
+                    <dd class="form-switch">
+                        <input type="checkbox" required #stock="ngModel" ngModel name="stock" class="form-check-input">  
+                    </dd>
+                    <dt>City</dt>
+                    <dd>
+                        <select name="city" #city="ngModel" ngModel class="form-select">
+                            <option>Hyd</option>
+                            <option>Delhi</option>
+                        </select>
+                    </dd>
+                </dl>
+                <button [disabled]="frm.invalid" class="btn btn-outline-primary w-100">Register</button>
+            </form>
+        </div>
+        <div class="col-9">
+            <h2>Products Details</h2>
+            <dl class="row">
+                <dt>Name</dt>
+                <dd>{{frm.value.name}}</dd>
+                <dt>Price</dt>
+                <dd>{{frm.value.price}}</dd>
+                <dt>Stock</dt>
+                <dd>{{(frm.value.stock==true?"Available":"Out of stock")}}</dd>
+                <dt>City</dt>
+                <dd>{{frm.value.city}}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

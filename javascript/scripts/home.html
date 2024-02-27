@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dom Hierarchy</title>
+        <script type="text/javascript">
+            function bodyload(){
+                document.querySelector("img").src="../../assets/card1.jpg"
+                document.querySelector("#btn").value = "Register";
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <div>
+            <img id="pics" width="100" name="pic" border="1">
+        </div>
+        <div>
+            <form name="frmRegister">
+                <h2>Register</h2>
+                <input id="btn" type="button" name="btnRegister">
+                <input type="email">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OutPut</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+           function yesClick(){
+            document.getElementById("msg").innerText = "Record deleted..";
+        }
+
+           function noClick(){
+            document.getElementById("msg").innerText= "You cancel";
+           }
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="mt-2">
+                <button class="btn btn-danger" data-bs-target="#delete" data-bs-toggle="modal">Delete</button>
+                <div class="modal fade" id="delete">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Delete record</h2>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure want to delete?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button onclick="yesClick()" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+                                <button onclick="noClick()" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-2">
+            <h2 id="msg" style="color:green"></h2>
+        </div>
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>
