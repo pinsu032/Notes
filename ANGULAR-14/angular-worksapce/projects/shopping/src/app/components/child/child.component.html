@@ -1,3 +1,11 @@
-<div class="container  text-white p-3">
+<div class="container bg-white  text-dark p-2" style="height: 280px;">
     <h2>Child Component</h2>
+    <p>{{messageFromParent}}</p>
+    <button (click)="buttonClick()" class="btn btn-dark">Send Message To Parent</button>
+    <select (change)="sendProduct()">
+        <option value="">Select Product</option>
+        <option value="">TV</option>
+        <option value="">Fridge</option>
+        <option value="">Fan</option>
+    </select>
 </div>

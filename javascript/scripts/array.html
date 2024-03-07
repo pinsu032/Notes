@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Array</title>
+      <script>
+         var categories = ["All","Electronics","Footwear","Fashion","Men's Clothing"];
+         function loadCategory(){
+            document.querySelector("ol").innerHTML = "";
+            document.querySelector("select").innerHTML = "";
+            document.querySelector("tbody").innerHTML = "";
+            document.querySelector("ul").innerHTML = "";
+            document.querySelector("nav").innerHTML = "";
+            for(var item of categories){
+               var li = document.createElement("li");
+               li.innerHTML = item ;
+               document.querySelector("ol").appendChild(li);
+
+               var option = document.createElement("option");
+               option.text = item;
+               option.value = item;
+
+               document.querySelector("select").appendChild(option);
+
+               var tr = document.createElement("tr");
+               var td = document.createElement("td");
+               td.innerHTML = item;
+               tr.appendChild(td);
+               document.querySelector("tbody").appendChild(tr);
+
+               var checkLi = document.createElement("li");
+               checkLi.innerHTML = `<input type="checkbox"> ${item}`;
+
+               document.querySelector("ul").appendChild(checkLi);
+
+               var div = document.createElement("div");
+               div.innerHTML = `<button style="margin-top:20px">${item}</button>`;
+
+               document.querySelector("nav").appendChild(div);
+            }
+         }
+         function bodyLoad(){
+            loadCategory();
+         }
+         function addCategory(){
+               var categoryname = document.getElementById("category").value;
+               categories.push(categoryname);
+               alert(`category added ${categoryname}`)
+               loadCategory();
+               document.getElementById("category").value = "";
+            }
+         function remove(){
+            var categoryname = document.querySelector("select").value;
+            var index = categories.indexOf(categoryname);
+            var flag = confirm(`Are you sure , want to delete : ${categoryname}`)
+            if(flag==true){
+               categories.splice(index,1);
+               loadCategory();
+            }
+
+         }
+         
+      </script>
+      <style>
+         .container {
+            display: flex;
+         }
+         .box {
+            margin-right: 20px;
+         }
+         ul{
+            list-style: none;
+            height: 50px;
+            border: 2px solid black;
+            padding: 10px;
+            overflow: auto;
+         }
+      </style>
+   </head>
+   <body onload="bodyLoad()">
+      <div style="margin-bottom: 20px;">
+         New Category :
+         <input type="text"  id="category">
+         <button onclick="addCategory()">Add</button>
+      </div>
+      <div class="container">
+         <div class="box">
+            <h3>Categories List</h3>
+            <ol>
+               
+            </ol>
+         </div>
+         <div class="box">
+            <h3>Select Category</h3>
+            <select>
+
+            </select>
+            <br><br>
+            <button onclick="remove()">Remove</button>
+         </div>
+         <div class="box">
+            <h3>Categories Menu</h3>
+            <table border="1" width="200">
+               <thead>
+                  <tr>
+                    <th> Select Category</th>
+                  </tr>
+               </thead>
+               <tbody>
+
+               </tbody>
+            </table>
+         </div>
+         <div class="box">
+            <h3>Categories checklist</h3>
+            <ul>
+
+            </ul>
+         </div>
+         <div class="box">
+            <h3>Nav Buttons</h3>
+            <nav>
+
+            </nav>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2>Register</h2>
+    <form [formGroup]="register" (submit)="submitClicked(register.value)">
+        <dl>
+            <dt>Name</dt>
+            <dd><input type="text" formControlName="Name"></dd>
+            <dt>Age</dt>
+            <dd><input type="text" formControlName="Age"></dd>
+            <div formGroupName="Address">
+                <h3>Contact Details</h3>
+                <dl>
+                    <dt>City</dt>
+                    <dd>
+                        <select formControlName="City">
+                            <option>Delhi</option>
+                            <option>Hyd</option>
+                        </select>
+                    </dd>
+                    <dt>Postal Code</dt>
+                    <dd>
+                        <input type="text" formControlName="Pin">
+                    </dd>
+                    <dt>Upload Photo <button type="button" (click)="addPhoto()" class="btn btn-link">more..</button></dt>
+                    <dd *ngFor="let item of Photos.controls; let i = index">
+                        <input type="file" formControlName="i"> <button class="btn btn-primary">Upload</button> <button (click)="removePhoto(i)" class="btn btn-danger m-1"><span class="bi bi-trash"></span></button>
+                    </dd>
+                </dl>
+                <button class="btn btn-primary">Register</button>
+                <button type="button" (click)="updateClikced()" class="btn btn-success m-1">Update</button> 
+            </div>
+        </dl>
+    </form>
+        </div>
+        <div class="col">
+            <h3>Details</h3>
+            <dl>
+                <dt>Name</dt>
+                <dd>{{register.value.Name}}</dd>
+                <dt>Age</dt>
+                <dd>{{register.value.Age}}</dd>
+                <dt>City</dt>
+                <dd>{{register.value.Address?.City}}</dd>
+                <dd>{{City.value}}</dd>
+                <dt>Postal Code</dt>
+                <dd>{{register.value.Address?.Pin}}</dd>
+            </dl>
+        </div>
+
+    </div>
+</div>

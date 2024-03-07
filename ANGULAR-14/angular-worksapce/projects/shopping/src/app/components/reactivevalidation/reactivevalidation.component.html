@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <form [formGroup]="register">
+        <h2>Register</h2>
+        <dl>
+            <dt>Name</dt>
+            <dd><input type="text" formControlName="Name"></dd>
+            <dd class="text-danger" *ngIf="Name.touched && Name.invalid">
+                <span *ngIf="Name.errors?.['required']">Name Required</span>
+                <span *ngIf="Name.errors?.['minlength']">Name too short</span>
+            </dd>
+            <dt>Mobile</dt>
+            <dd><input type="text" formControlName="Mobile"></dd>
+            <dd class="text-danger" *ngIf="Mobile.touched && Mobile.invalid">
+                <span *ngIf="Mobile.errors?.['required']">Mobile Required</span>
+                <span *ngIf="Mobile.errors?.['pattern']">Mobile Invalid</span>
+            </dd>
+        </dl>
+    </form>
+</div>

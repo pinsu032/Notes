@@ -1,6 +1,12 @@
-<div class="bg-dark text-white p-3" style="height: 300px;">
-    <h2>
-        Parent Component
-        <app-child></app-child>
-    </h2>
+<div class="bg-dark text-white p-3" style="height: 500px;">
+    <h2> Parent Component <button class="btn btn-light" (click)="sendMessage()">Send Message to child</button> </h2>
+        <p>{{messageFromChild}}</p>
+        <dl>
+            <dt>Name</dt>
+            <dd>{{Product.Name}}</dd>
+            <dt>Price</dt>
+            <dd>{{Product.Price}}</dd>
+        </dl>
+        <app-child (childComponentChange)="getProduct($event)" (childComponentClick)="getMessage($event)" [messageFromParent]="messageToChild"></app-child>
+   
 </div>

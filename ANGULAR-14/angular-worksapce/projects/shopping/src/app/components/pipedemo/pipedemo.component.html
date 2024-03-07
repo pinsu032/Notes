@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <dl>
+        <dt>Price</dt>
+        <dd>{{product.price | currency:'&#8377;'}}</dd>
+        <dt>Manufactured</dt>
+        <dd>{{product.mfd | date:'dd-MMMM-YYYY'}}</dd>
+    </dl>
+    {{product | json}}
+</div>

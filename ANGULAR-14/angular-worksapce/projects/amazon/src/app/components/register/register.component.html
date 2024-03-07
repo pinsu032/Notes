@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <form #register="ngForm" (submit)="registerClick(register.value)">
+        <h2>Register User</h2>
+        <dl>
+            <dt>Full Name</dt>
+            <dd>
+                <input type="text" name="fullName" ngModel #fullName="ngModel">
+            </dd>
+            <dt>Email</dt>
+            <dd>
+                <input type="text" name="email" ngModel #email="ngModel">
+            </dd>
+            <dt>Mobile</dt>
+            <dd>
+                <input type="text" name="mobile" ngModel #mobile="ngModel">
+            </dd>
+            <dt>Gender</dt>
+            <dd>
+                <input type="text" name="gender" ngModel #gender="ngModel">
+            </dd>
+            <dt>Password</dt>
+            <dd>
+                <input type="password" name="password" ngModel #password="ngModel">
+            </dd>
+            <dt>Address</dt>
+            <dd>
+                <input type="text" name="address" ngModel #address="ngModel">
+            </dd>
+        </dl>
+        <button class="btn btn-primary">Register</button>
+    </form>
+</div>

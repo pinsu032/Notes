@@ -1,0 +1,19 @@
+.invalid-style{
+    background-color: rgb(249,211,211);
+}
+.valid-style{
+    background-color: rgb(200,246,200);
+}
+form{
+    padding: 20px;
+}
+
+input.ng-invalid{
+    border: 2px solid red;
+    box-shadow: 2px 2px 3px red;
+}
+
+input.ng-valid{
+    border: 2px solid green;
+    box-shadow: 2px 2px 3px green;
+}
