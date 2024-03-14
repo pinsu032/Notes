@@ -1,5 +1,6 @@
 h1{
-    background-color: tomato;
-    color: white;
-    text-align:center;
+    color: green;
+    border:2px solid red;
+    text-align: center;
+    background-color: yellow;
 }

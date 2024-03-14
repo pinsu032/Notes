@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Selector</title>
+    <style>
+        #username:valid+div{
+            display: none;
+        }
+        #username:invalid+div{
+            display: block;
+        }
+        #mobile:invalid+div{
+            display: block;
+        }
+        #mobile:valid+div{
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <h2>Register</h2>
+    <dl>
+        <dt>User Name</dt>
+        <dd>
+            <input type="text" id="username" required>
+            <div style="color:red">User Name Required</div>
+        </dd>
+        <dt>Mobile</dt>
+        <dd>
+            <input type="text" id="mobile" pattern="\+91\d{10}\">
+            <div style="color: red">
+                Invalid Mobile : +91 and 10 digits required
+            </div>
+        </dd>
+    </dl>
+</body>
+</html>

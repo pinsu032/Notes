@@ -1,0 +1,6 @@
+{
+    "name":"Iphone",
+    "price": 55000.44,
+    "photo":"../../assets/iphone.webp",
+    "stock":true
+}
