@@ -21,4 +21,17 @@ export class IshopapiService {
   public login(data:any):Observable<any>{
     return this.http.post<any>('http://localhost:9092/user/login',data);
   }
+
+  public loadCategories():Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/categories');
+  }
+
+  public loadProductsByCategory():Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/fetch/');
+  }
+
+  public loadProducts():Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/getAll_p');
+  }
+
 }

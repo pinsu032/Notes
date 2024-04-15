@@ -1,0 +1,4 @@
+// © 2018 – 2019  Infosys Limited, Bangalore, India. All Rights Reserved
+// Release Version:1.0.0.0 
+
+$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip()});var targetNode=document.body,config={attributes:!0,childList:!0,characterData:!0,subtree:!0},callback=function(mutationsList){$('[data-toggle="tooltip"]').tooltip()},observer=new MutationObserver(callback);observer.observe(targetNode,config);

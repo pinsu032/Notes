@@ -7,6 +7,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { AppComponent } from './app.component';
@@ -41,6 +43,8 @@ import { PipedemoComponent } from './components/pipedemo/pipedemo.component';
 import { TemplateformComponent } from './components/templateform/templateform.component';
 import { ReactiveformComponent } from './components/reactiveform/reactiveform.component';
 import { ReactivevalidationComponent } from './components/reactivevalidation/reactivevalidation.component';
+import { InfyComponent } from './components/infy/infy.component';
+import { GcmnirajComponent } from './components/gcmniraj/gcmniraj.component';
 
 
 @NgModule({
@@ -74,7 +78,9 @@ import { ReactivevalidationComponent } from './components/reactivevalidation/rea
     PipedemoComponent,
     TemplateformComponent,
     ReactiveformComponent,
-    ReactivevalidationComponent
+    ReactivevalidationComponent,
+    InfyComponent,
+    GcmnirajComponent
   ],
   imports: [
     BrowserModule,
@@ -86,9 +92,11 @@ import { ReactivevalidationComponent } from './components/reactivevalidation/rea
     MatNativeDateModule,
     ScrollingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [CaptchaService],
-  bootstrap: [ReactivevalidationComponent]
+  bootstrap: [GcmnirajComponent]
 })
 export class AppModule { }

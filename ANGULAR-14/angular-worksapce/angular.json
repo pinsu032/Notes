@@ -286,6 +286,100 @@
           }
         }
       }
+    },
+    "mobilecart": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/mobilecart",
+      "sourceRoot": "projects/mobilecart/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mobilecart",
+            "index": "projects/mobilecart/src/index.html",
+            "main": "projects/mobilecart/src/main.ts",
+            "polyfills": "projects/mobilecart/src/polyfills.ts",
+            "tsConfig": "projects/mobilecart/tsconfig.app.json",
+            "assets": [
+              "projects/mobilecart/src/favicon.ico",
+              "projects/mobilecart/src/assets"
+            ],
+            "styles": [
+              "projects/mobilecart/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/mobilecart/src/environments/environment.ts",
+                  "with": "projects/mobilecart/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "mobilecart:build:production"
+            },
+            "development": {
+              "browserTarget": "mobilecart:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mobilecart:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mobilecart/src/test.ts",
+            "polyfills": "projects/mobilecart/src/polyfills.ts",
+            "tsConfig": "projects/mobilecart/tsconfig.spec.json",
+            "karmaConfig": "projects/mobilecart/karma.conf.js",
+            "assets": [
+              "projects/mobilecart/src/favicon.ico",
+              "projects/mobilecart/src/assets"
+            ],
+            "styles": [
+              "projects/mobilecart/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }

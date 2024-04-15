@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Array Manipulation</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script>
+            var products = [];
+            var product = {};
+            function loadProducts(){
+                document.querySelector("tbody").innerHTML="";
+                for(var item of products){
+                    var tr= document.createElement("tr");
+                    var tdName=document.createElement("td");
+                    var tdPrice=document.createElement("td");
+                    var tdCity=document.createElement("td");
+                    var tdDetails = document.createElement("td");
+                    var tdDelete = document.createElement("td");
+
+                    tdDetails.innerHTML = `
+                     <button onclick="infoClick(${item.name})" class="btn btn-info"><span class="bi bi-eye"><span></button>
+                     <button class="btn btn-danger"><span class="bi bi-trash"><span></button>
+                    `;
+
+                    tdName.innerHTML=item.name;
+                    tdPrice.innerHTML=item.price;
+                    tdCity.innerHTML=item.city;
+
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdPrice);
+                    tr.appendChild(tdCity);
+                    tr.appendChild(tdDetails);
+                    tr.appendChild(tdDelete);
+
+                    document.querySelector("tbody").appendChild(tr);
+                }
+
+            }
+
+            function bodyLoad(){
+
+            }
+
+            function addClick(){
+                product = {
+                    "name" : document.getElementById("name").value,
+                    "price" : document.getElementById("price").value,
+                    "city" : document.getElementById("cities").value
+                }
+                products.push(product);
+                loadProducts();
+                alert("product added successfully..");
+                document.getElementById("name").value="";
+                document.getElementById("price").value="";
+            }
+
+            function infoClick(product){
+                console.log(product.name);
+            }
+
+        </script>
+    </head>
+    <body onload="bodyLoad()" class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <h3>Add New Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd>
+                        <input type="text" id="name">
+                    </dd>
+                    <dt>Price</dt>
+                    <dd>
+                        <input type="text" id="price">
+                    </dd>
+                    <dt>Shipped To</dt>
+                    <dd>
+                        <select class="form-select" id="cities">
+                            <option>Delhi</option>
+                            <option>Hyd</option>
+                        </select>
+                    </dd>
+                </dl>
+                <button onclick="addClick()" class="btn btn-primary w-100">Add Products</button>
+            </div>
+            <div class="col-9">
+                <h2>Products List</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Shipped To</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>

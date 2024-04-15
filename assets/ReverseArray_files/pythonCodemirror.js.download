@@ -1,0 +1,99 @@
+// © 2018 – 2019  Infosys Limited, Bangalore, India. All Rights Reserved
+// Release Version:1.0.0.0 
+
+document.getElementById('theme-select').addEventListener('change', selectTheme);
+// document.getElementById('fullscreen').addEventListener('click', toggleFullscreen);
+document.getElementById('decreaseFont').addEventListener('click', decreaseFontSize);
+document.getElementById('increaseFont').addEventListener('click', increaseFontSize);
+document.getElementById('language-select').addEventListener('change', selectLanguage);
+// document.getElementById('exitFullScreen').addEventListener('click', toggleFullscreen);
+var input1, input2, input3, editor, type, mode, fontSize, theme = "xq-light",
+  fontIncrease = 11;
+
+function toggleFullscreen() {
+  editor.setOption("fullScreen", !editor.getOption("fullScreen")), editor.focus()
+}
+
+function resetCodemirror() {
+  editor.focus()
+}
+
+function increaseFontSize() {
+  fontIncrease < 30 && (fontIncrease += 1), fontSize = fontIncrease.toString(), editor.getWrapperElement().style["font-size"] = fontSize + "px", editor.refresh(), editor.focus()
+}
+
+function decreaseFontSize() {
+  1 < fontIncrease && (fontIncrease -= 1), fontSize = fontIncrease.toString(), editor.getWrapperElement().style["font-size"] = fontSize + "px", editor.refresh(), editor.focus()
+}
+
+function selectFontSize() {
+  fontSize = input3.options[input3.selectedIndex].textContent, editor.getWrapperElement().style["font-size"] = fontSize + "px"
+}
+
+function selectTheme() {
+  theme = (input2.options[input2.selectedIndex].textContent).trim(), editor.setOption("theme", theme), $("#textEditor").text(editor.getValue()), editor.refresh(), editor.focus()
+}
+
+function selectLanguage() {
+  type = (input1.options[input1.selectedIndex].textContent).trim(), "C#" == type ? (editor.setOption("mode", "text/x-csharp")) : "C" == type ? editor.setOption("mode", "text/x-csrc") : "C++" == type ? editor.setOption("mode", "text/x-c++src") : "Clojure" == type ? editor.setOption("mode", "text/x-clojure") : "Java" == type ? (editor.setOption("mode", "text/x-java")) : "Go" == type ? editor.setOption("mode", "text/x-go") : "Plain Javascript" == type ? editor.setOption("mode", "text/javascript") : "PHP" == type ? editor.setOption("mode", "text/x-php") : "Python" == type ? (editor.setOption("mode", "text/x-python")) : "Python 3" == type ? (editor.setOption("mode", "text/x-python")) : "Ruby" == type ? editor.setOption("mode", "text/x-ruby") : "Scala" == type ? editor.setOption("mode", "text/x-scala") : "VB.NET" == type ? editor.setOption("mode", "text/x-vb") : "Bash" == type ? editor.setOption("mode", "text/x-vb") : "Objective-C" == type ? editor.setOption("mode", "text/x-objectivec") : "MySQL" == type ? editor.setOption("mode", "text/x-mysql") : "Perl" == type ? editor.setOption("mode", "text/x-perl") : "Rust" == type && editor.setOption("mode", "text/x-rustsrc"), $("#textEditor").text(editor.getValue()), "" == editor.getValue() && editor.setValue(" "), editor.refresh();
+}
+
+function selectLanguage2() {
+  type = input1.options[input1.selectedIndex].textContent;
+  switch (type) {
+    case "C#": editor.setOption("mode", "text/x-csharp");
+      break;
+    case "C": editor.setOption("mode", "text/x-csrc");
+      break;
+    case "C++": editor.setOption("mode", "text/x-c++src");
+      break;
+    case "Clojure": editor.setOption("mode", "text/x-clojure");
+      break;
+    case "Java": editor.setOption("mode", "text/x-java");
+      break;
+    case "Go": editor.setOption("mode", "text/x-go");
+      break;
+    case "Plain Javascript": editor.setOption("mode", "text/javascript");
+      break;
+    case "PHP": editor.setOption("mode", "text/x-php");
+      break;
+    case "Python": editor.setOption("mode", "text/x-python");
+      break;
+    case "Python 3": editor.setOption("mode", "text/x-python");
+      break;
+    case "Ruby": editor.setOption("mode", "text/x-ruby");
+      break;
+    case "Scala": editor.setOption("mode", "text/x-scala");
+      break;
+    case "VB.NET": editor.setOption("mode", "text/x-vb");
+      break;
+    case "Bash": editor.setOption("mode", "text/x-vb");
+      break;
+    case "Objective-C": editor.setOption("mode", "text/x-objectivec");
+      break;
+    case "MySQL": editor.setOption("mode", "text/x-mysql");
+      break;
+    case "Perl": editor.setOption("mode", "text/x-perl");
+      break;
+    case "Rust": editor.setOption("mode", "text/x-rustsrc");
+      break;
+  }
+  console.log("type: ", type.length);
+  console.log("editor:", editor.options.mode);
+}
+$(document).ready(function () {
+  var codeNew = document.getElementById("textEditor");
+  mode = "text/x-java", type = "Java", theme = "xq-light";
+  var cmOptions = {
+    lineNumbers: !0,
+    autoCloseBrackets: !0,
+    matchBrackets: !0,
+    theme: theme,
+    styleActiveLine: !0,
+    gutters: ["CodeMirror-lsp"],
+    mode: mode,
+    indentUnit: 4
+  };
+  editor = CodeMirror.fromTextArea(codeNew, cmOptions), input1 = document.getElementById("language-select"), input2 = document.getElementById("theme-select"), input3 = document.getElementById("fontSize-select"), $("#textEditor").text(editor.getValue());
+  selectLanguage()
+});

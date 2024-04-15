@@ -1,0 +1,11 @@
+[
+    {
+        "category":"Electronics",
+        "products":["Samsung TV", "Sony Speaker"]
+
+    },
+    {
+        "category":"Footwear",
+        "products":["Nike Casuals", "Lee Boot"]
+    }
+]

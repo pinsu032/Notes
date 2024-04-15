@@ -16,6 +16,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ErrorpageComponent } from './components/errorpage/errorpage.component';
     DetailsComponent,
     RegisterComponent,
     LoginComponent,
-    ErrorpageComponent
+    ErrorpageComponent,
+    FilterComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h2 >Course Details</h2>
+    <h2>{{name}}</h2>
+    <div *ngIf="show">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cours of course">
+                    <td>{{cours.id}}</td>
+                    <td>{{cours.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button (click)="changeCourse(name)">Click To Shown Course details</button>
+    </div>
+</div>

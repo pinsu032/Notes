@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute</title>
+    <style>
+       header,section,nav,main,aside,footer{
+        border:1px solid black;
+        padding: 5px;
+        margin: 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+       }
+       
+       @media screen and (orientation:landscape) {
+        body{
+            background-image: url("../../../assets/shoe.jpg");
+            background-size: cover;
+
+        }
+        .container{
+        display:grid;
+        grid-template-columns: 3fr 6fr 3fr;
+       }
+       header{
+        grid-row: 1;
+        grid-column: 1/4;
+       }
+       footer{
+        grid-row: 3;
+        grid-column: 1/4;
+       }
+       nav{
+        grid-row:2;
+        grid-column: 1;
+       }
+       main{
+        grid-row:2;
+        grid-column: 2;
+        height: 300px;
+       }
+       aside{
+        grid-row:2;
+        grid-column: 3;
+       }
+       }
+
+       @media screen and (orientation:portrait) {
+        body{
+            background-image: url("../../../assets/netflix1.jpg");
+            background-size: 500 500;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+        }
+        .container{
+        display:grid;
+        grid-template-columns: 3fr 6fr 3fr;
+       }
+       header{
+        grid-row: 1;
+        grid-column: 1/4;
+       }
+       footer{
+        grid-row: 3;
+        grid-column: 1/4;
+       }
+       nav{
+        grid-row:2;
+        grid-column: 1;
+       }
+       main{
+        grid-row:2;
+        grid-column: 2;
+        height: 300px;
+       }
+       aside{
+        grid-row:2;
+        grid-column: 3;
+        display:none;
+       }
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h3>Header</h3>
+        </header>
+            <nav>
+                nav..
+            </nav>
+            <main>
+                main..
+            </main>
+            <aside>
+                ads..
+            </aside>
+        <footer>
+            footer..
+        </footer>
+    </div>
+</body>
+</html>

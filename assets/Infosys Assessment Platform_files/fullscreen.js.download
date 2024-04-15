@@ -1,0 +1,7 @@
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+// document.getElementById("fullscreen").addEventListener("click", toggleFullScreen);
+!function(mod){"object"==typeof exports&&"object"==typeof module?// CommonJS
+mod(require("../../lib/codemirror")):"function"==typeof define&&define.amd?// AMD
+define(["../../lib/codemirror"],mod):// Plain browser env
+mod(CodeMirror)}(function(CodeMirror){"use strict";CodeMirror.defineOption("fullScreen",!1,function(cm,val,old){old==CodeMirror.Init&&(old=!1),!old!=!val&&(val?function(cm){var wrap=cm.getWrapperElement();cm.state.fullScreenRestore={scrollTop:window.pageYOffset,scrollLeft:window.pageXOffset,width:wrap.style.width,height:wrap.style.height},wrap.style.width="",wrap.style.height="auto",wrap.className+=" CodeMirror-fullscreen",document.documentElement.style.overflow="hidden",cm.refresh()}(cm):function(cm){var wrap=cm.getWrapperElement();wrap.className=wrap.className.replace(/\s*CodeMirror-fullscreen\b/,""),document.documentElement.style.overflow="";var info=cm.state.fullScreenRestore;wrap.style.width=info.width,wrap.style.height=info.height,window.scrollTo(info.scrollLeft,info.scrollTop),cm.refresh()}(cm))})});

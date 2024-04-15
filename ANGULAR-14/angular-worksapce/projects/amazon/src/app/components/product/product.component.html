@@ -1,0 +1,20 @@
+<div class="container-fluid row">
+    <nav class="col-3 bg-black">
+        <app-filter (FilterChange)="filterProduct($event)" (FilterClicked)="categoryChange($event)" [electronicsCount]="electronicsCount" [jewellaryCount]="jewellaryCount" [mensCount]="mensCount" [womensCount]="womensCount"></app-filter>
+    </nav>
+    <main class="col-9">
+        <h2 style="align-items: center;">{{title}}</h2>
+        <div class="d-flex flex-wrap overflow-auto" style="height: 500px;">
+            <div *ngFor="let item of Products" class="card m-2 p-2" style="width: 200px">
+                <img [src]="item.filePath" height="180" class="card-img-top">
+                <div class="card-header" style="height: 160px">
+                    <b><p style="color: green;">{{item.productName}}</p></b>
+                    <p style="color: green;">{{item.productPrice | currency:'USD'}}</p>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

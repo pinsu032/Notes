@@ -12,13 +12,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { CategoriesGuard } from './guard/categories.guard';
+import { ProductComponent } from './components/product/product.component';
 
 const routes: Routes = [
   {path:"home", component:HomeComponent},
   {path:"kids", component:KidsComponent},
   {path:"men", component:MenComponent},
   {path:"women", component:WomenComponent},
-  {path:"categories",component:CategoriesComponent , canActivate: [CategoriesGuard]},
+  //{path:"categories",component:CategoriesComponent , canActivate: [CategoriesGuard]},
+  {path:"categories",component:CategoriesComponent},
   {path:"products/:category",component:ProductsComponent,
     children: [
       {path:"details/:id",component:DetailsComponent}
@@ -26,10 +28,10 @@ const routes: Routes = [
   },
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},
+  {path:"product",component:ProductComponent},
   {path:"errorpage",component:ErrorpageComponent},
   {path:"", redirectTo:"home",pathMatch:"full"},
   {path:"**",component:NotfoundComponent},
-
 
 ];
 

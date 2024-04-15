@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+        <style>
+            span {
+            color: red;
+           }
+           header,footer{
+               background-color: black;
+               color: white;
+               text-align: center;
+           }
+           section{
+               height: 500px;
+               overflow: auto;
+           }
+           /* styles.css */
+        .select-wrapper {
+            position: relative;
+        }
+
+        /* Style the select box */
+        #filterOptions {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Style the clear button */
+        #clearButton {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #cbd900;
+        }
+
+        /* Optional: Add hover effect for the clear button */
+        #clearButton:hover {
+            text-decoration: underline;
+        }
+        nav{
+            grid-row: 2;
+            grid-column: 1/4;
+        }
+        main{
+            grid-row: 2;
+            grid-column: 2;
+        }
+
+       </style>
+       <script>
+                document.addEventListener('DOMContentLoaded', function () {
+            const filterOptions = document.getElementById('filterOptions');
+            const clearButton = document.createElement('span');
+            clearButton.id = 'clearButton';
+            clearButton.textContent = 'Clear';
+            clearButton.addEventListener('click', function () {
+                // Clear selected options
+                filterOptions.selectedIndex = -1;
+            });
+            filterOptions.parentNode.appendChild(clearButton);
+        });
+
+       </script>
+    </head>
+    <body class="container-fluid">
+        <header>
+            MultiSelect Demo
+        </header>
+        <section>
+            <nav>
+                <menu>
+                    <div>Home</div>
+                    <div>Electronics</div>
+                    <div>FootWear</div>
+                </menu>
+            </nav>
+            <main>
+                <form>
+                    <fieldset>
+                        <legend>Filter Options</legend>
+                        <div class="select-wrapper">
+                            <select id="filterOptions" aria-multiselectable="true">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                    </fieldset>
+                </form>
+                <button>Save And Run</button>
+            </main>
+        </section>
+        <footer>
+            copyright 2022
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Nested List</title>
+       <script>
+        function bodyLoad(){
+            fetch("../../data/menu.json")
+            .then(res=>res.json())
+            .then(function(data){
+                for(var item of data){
+                    var li = document.createElement("li");
+                    li.innerHTML = item.category;
+                    document.querySelector("ol").appendChild(li);
+
+                    var optgroup = document.createElement("optgroup");
+                    optgroup.label = item.category;
+                    document.querySelector("select").appendChild(optgroup);
+                    for(var product of item.products){
+                        var ul = document.createElement("ul");
+                        var ulItme = document.createElement("li");
+                        ulItme.innerHTML= product;
+                        ul.appendChild(ulItme);
+                        li.appendChild(ul);
+
+                        var option = document.createElement("option");
+                        option.text=product;
+                        option.value=product;
+                        optgroup.appendChild(option);
+                    }
+                }
+            })
+        }
+       </script>
+</head>
+<body onload="bodyLoad()">
+    <ol>
+
+    </ol>
+    <select>
+        
+    </select>
+</body>
+</html>   
