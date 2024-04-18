@@ -25,11 +25,12 @@
     "bootstrap-icons": "^1.11.3",
     "ngx-cookie-service": "^14.0.1",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.6.13",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.13",
+    "@angular-devkit/build-angular": "^14.2.0",
     "@angular/cli": "~14.2.13",
     "@angular/compiler-cli": "^14.2.0",
     "@jefiozie/ngx-aws-deploy": "^1.2.0",

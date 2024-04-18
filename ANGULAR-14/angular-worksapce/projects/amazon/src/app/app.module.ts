@@ -4,12 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { WomenComponent } from './components/women/women.component';
-import { MenComponent } from './components/men/men.component';
-import { KidsComponent } from './components/kids/kids.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { ProductsComponent } from './components/products/products.component';
+import { CategoriesComponent } from '../../../shopping/src/app/components/categories/categories.component';
 import { DetailsComponent } from './components/details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
@@ -18,17 +14,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { ProductComponent } from './components/product/product.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    WomenComponent,
-    MenComponent,
-    KidsComponent,
     NotfoundComponent,
     CategoriesComponent,
-    ProductsComponent,
     DetailsComponent,
     RegisterComponent,
     LoginComponent,
@@ -41,7 +35,9 @@ import { ProductComponent } from './components/product/product.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
