@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+  <header class="d-flex justify-content-between bg-dark text-white p-2" *ngIf="user">
+    <div>
+      <span class="brand">Stationary Shop</span>
+    </div>
+    <div class="menu">  
+      <a routerLink="order" *ngIf="isAdmin">Order</a>
+      <a routerLink="user" *ngIf="isAdmin">Details</a>
+      <a routerLink="product">Product</a>
+    </div>
+    <div class="icons">
+      <a routerLink="login"><span class="bi bi-person"></span></a>
+      <span class="bi bi-cart2"><a class="nav-item nav-link" (click)="logout()">Logout</a></span>
+    </div>
+  </header>
+  
+  <section class="mt-2">
+    <router-outlet></router-outlet>
+  </section>
+</div>
+
+
