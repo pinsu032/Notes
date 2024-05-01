@@ -26,8 +26,8 @@ export class IshopapiService {
     return this.http.get<any>('http://localhost:8080/admin/categories');
   }
 
-  public loadProductsByCategory():Observable<any>{
-    return this.http.get<any>('http://localhost:8080/admin/fetch/');
+  public loadProductsByCategory(category:string):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/admin/fetch/${category}`);
   }
 
   public loadProducts():Observable<any>{
@@ -44,6 +44,10 @@ export class IshopapiService {
 
   public getOrderDetails():Observable<any>{
     return this.http.get<any>('http://localhost:8080/order/all');
+  }
+
+  public getOrderDetailsByUserId(email:any):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/order/get/${email}`);
   }
 
   public changeStatus(id:number):Observable<any>{

@@ -17,6 +17,7 @@ import { UserComponent } from './component/user/user.component';
 import { OrderdetailsComponent } from './component/orderdetails/orderdetails.component';
 import { ProductComponent } from './component/product/product.component';
 import { FilterComponent } from './component/filter/filter.component';
+import { HomeSessionComponent } from './component/home-session/home-session.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FilterComponent } from './component/filter/filter.component';
     UserComponent,
     OrderdetailsComponent,
     ProductComponent,
-    FilterComponent
+    FilterComponent,
+    HomeSessionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,41 @@
 
-<div class="container-fluid">
-  <header class="d-flex justify-content-between bg-dark text-white p-2" *ngIf="user">
+<div *ngIf="session" class="container-fluid">
+  <nav class="d-flex justify-content-between text-white p-2" *ngIf="user">
     <div>
-      <span class="brand">Stationary Shop</span>
+      <span class="brand">Stationary Shop&nbsp;&nbsp;<button (click)="moveToSession()" *ngIf="isAdmin" class="btn btn-info">Session</button></span>
     </div>
     <div class="menu">  
       <a routerLink="order" *ngIf="isAdmin">Order</a>
       <a routerLink="user" *ngIf="isAdmin">Details</a>
       <a routerLink="product">Product</a>
+      <a routerLink="home">Home</a>
     </div>
-    <div class="icons">
-      <a routerLink="login"><span class="bi bi-person"></span></a>
-      <span class="bi bi-cart2"><a class="nav-item nav-link" (click)="logout()">Logout</a></span>
+    <div>
+      <h6>Welocme {{user.fullName}}</h6>
+      <a class="nav-item nav-link" (click)="logout()">Logout &nbsp;&nbsp;<span class="bi bi-cart2"></span></a>
     </div>
-  </header>
+  </nav>
   
   <section class="mt-2">
     <router-outlet></router-outlet>
   </section>
 </div>
 
-
+<div *ngIf="flag" class="container-fluid">
+  <nav class="d-flex justify-content-between text-white p-2" *ngIf="user">
+    <div>
+      <span class="brand">Session&nbsp;&nbsp;<button (click)="backToMain()" class="btn btn-info">Back To Main</button></span>
+    </div>
+    <div class="menu">  
+      <a routerLink="session">Home</a>
+    </div>
+    <div>
+      <h6>Welocme {{user.fullName}}</h6>
+      <a class="nav-item nav-link" (click)="logout()">Logout &nbsp;&nbsp;<span class="bi bi-cart2"></span></a>
+    </div>
+  </nav>
+  
+  <section class="mt-2">
+    <router-outlet></router-outlet>
+  </section>
+</div>

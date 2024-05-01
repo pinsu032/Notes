@@ -11,10 +11,12 @@ import { Role } from './contracts/Role';
 import { OrderdetailsComponent } from './component/orderdetails/orderdetails.component';
 import { UserComponent } from './component/user/user.component';
 import { ProductComponent } from './component/product/product.component';
+import { HomeSessionComponent } from './component/home-session/home-session.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'home',component:HomeComponent,canActivate: [AuthGuard]},
+  {path:'home',component:HomeComponent,pathMatch:'full',canActivate: [AuthGuard]},
+  {path:'session',component:HomeSessionComponent},
   {path:'login',component:LoginComponent},
   {path:'order',component:OrderdetailsComponent,
     canActivate: [AuthGuard],

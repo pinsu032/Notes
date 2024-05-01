@@ -1,6 +1,9 @@
 <div>
     <h1 style="text-align: center;">Order Details</h1>
-
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
       <table width="500" border="1" bgColor="yellow">
         <tr>
           <th>Order Id</th>
@@ -14,8 +17,8 @@
           <td>{{or.orderId}}</td>
           <td>{{or.category}}</td>
           <td>{{or.productName}}</td>
-          <td>{{or.totalPrice}}</td>
-          <td>{{or.creationTime}}</td>
+          <td>{{or.totalPrice | currency:'INR'}}</td>
+          <td>{{or.creationTime | date:'short'}}</td>
           <td><button (click)="changeStatus(or.orderId)" class="btn btn-success">{{or.status}}</button>
         </tr>
       </table>

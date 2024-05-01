@@ -1,17 +1,35 @@
-.brand{
-    font-size:25px;
-    font-weight: bold;
-}
-.menu{
-    font-size: 25px;
-}
-.menu a{
-    margin-left: 40px;
-}
-.icons span{
-    margin-right: 20px;
-}
-a{
-    color: white;
-    text-decoration: none;
+
+
+@media only screen and (min-width: 599.98px) { 
+    .div{
+    border:red;
+    }
+
+    .brand{
+        font-size:25px;
+        font-weight: bold;
+    }
+    .menu{
+        font-size: 25px;
+    }
+    .menu a{
+        margin-left: 40px;
+    }
+    .icons span{
+        margin-right: 20px;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    section{
+        background-color: rgba(163, 77, 139, 0.1);
+    }
+
+    nav{
+        background-color: rgb(33, 82, 82);
+        position: relative;
+        z-index: 1;
+    }
 }

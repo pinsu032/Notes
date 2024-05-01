@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
+import { Component, OnInit} from '@angular/core';
 import { IshopapiService } from '../../service/ishopapi.service';
 import Swal from 'sweetalert2'
 
@@ -24,8 +23,15 @@ export class OrderdetailsComponent implements OnInit {
    public order : Orders[] =[];
    
   constructor(private service : IshopapiService) { }
+
   ngOnInit(): void {
     this.loadDetails();
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.order = this.order.filter(or => or.category.includes(filterValue));
+    console.log(this.order);
   }
 
   public loadDetails(){

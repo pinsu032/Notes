@@ -26,7 +26,12 @@ export class LoginComponent implements OnInit {
         private authService : AuthenticationService
         //private accountService: AccountService,
         //private alertService: AlertService
-    ) { }
+    ) { 
+        // redirect to home if already logged in
+        if (this.authService.userValue) { 
+            this.router.navigate(['home']);
+        }
+    }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
@@ -78,7 +83,7 @@ export class LoginComponent implements OnInit {
             if(data.msg == "Login Success..."){
                // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
                 //this.router.navigateByUrl(returnUrl);
-                localStorage.setItem('token',data.token);
+                //localStorage.setItem('token',data.token);
                 this.router.navigate(['home']);
             }
         },

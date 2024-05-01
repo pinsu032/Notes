@@ -1,6 +1,7 @@
 import { Role } from "./Role";
 
 export interface UserContract{
+    token: string | null;
     userId:number;
     fullName:string;
     email:string;

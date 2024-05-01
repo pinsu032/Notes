@@ -3,6 +3,7 @@ import { IshopapiService } from '../../service/ishopapi.service';
 import { FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../service/authentication.service';
 
 
 @Component({
@@ -27,7 +28,10 @@ export class ProductComponent implements OnInit {
     public categoryName:string = ""; 
     public title : string = "";
 
-  constructor(private service: IshopapiService,private fb : FormBuilder,private route:Router) { }
+  constructor(private service: IshopapiService,
+    private fb : FormBuilder,private route:Router,
+    private authService : AuthenticationService) 
+    { }
 
   public loadProducts(){
     this.title = "All Products";
@@ -44,8 +48,10 @@ export class ProductComponent implements OnInit {
     this.product.productName = data.productName;
     this.product.productPrice = data.productPrice;
     console.log(this.product);
+    console.log(this.authService.userValue?.email);
 
     this.orderDetail = this.fb.group({
+      email:this.fb.control(this.authService.userValue?.email),
       category : this.fb.control(this.categoryName),
       pid : this.fb.control(data.pid),
       productName : this.fb.control(data.productName),
@@ -69,11 +75,18 @@ export class ProductComponent implements OnInit {
       this.title = "Pen Products";
     }
 
-    fetch(`http://localhost:8080/admin/fetch/${e}`)
-    .then(res => res.json())
-    .then(data =>{
-      this.Products = data;
-    })
+    this.service.loadProductsByCategory(e).subscribe(
+      data =>{
+        this.Products = data;
+      },
+      error=>{
+        Swal.fire({
+          text:"Something went wrong..",
+          icon:"error",
+          confirmButtonText:"OK"
+        })
+      }
+    )
     
   }
 

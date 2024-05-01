@@ -11,7 +11,7 @@
                 <img [src]="item.filePath" height="180" class="card-img-top">
                 <div class="card-header" style="height: 160px">
                     <b><p style="color: green;">{{item.productName}}</p></b>
-                    <p style="color: green;">{{item.productPrice | currency:'USD'}}</p>
+                    <p style="color: green;">{{item.productPrice | currency:'INR'}}</p>
                 </div>
                 <div class="card-body">
                     <button type="button" (click)="setDefaultValue(item)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -34,6 +34,9 @@
             <div *ngIf="formFlag" class="modal-body">
                 <form [formGroup]="orderDetail" (submit)="placeOrder(orderDetail.value)">                           
                     <dl>
+                        <dt><label>Email</label></dt>
+                        <dd><input type="text" name="email" formControlName="email"  readonly></dd>
+
                         <dt><label>Category</label></dt>
                         <dd><input type="text" name="category" formControlName="category"  readonly></dd>
 
