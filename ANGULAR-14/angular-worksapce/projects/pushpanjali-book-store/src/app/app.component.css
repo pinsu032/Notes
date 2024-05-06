@@ -27,9 +27,10 @@
         background-color: rgba(163, 77, 139, 0.1);
     }
 
-    nav{
-        background-color: rgb(33, 82, 82);
-        position: relative;
-        z-index: 1;
-    }
+    
+}
+nav{
+    background-color: rgb(33, 82, 82);
+    position: relative;
+    z-index: 1;
 }

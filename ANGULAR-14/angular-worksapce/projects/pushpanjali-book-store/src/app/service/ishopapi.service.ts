@@ -54,4 +54,12 @@ export class IshopapiService {
     return this.http.get<any>(`http://localhost:8080/order/change/${id}`);
   }
 
+  public addToCart(id:number,p:any):Observable<any>{
+    return this.http.put<any>(`http://localhost:8080/admin/update_p/${id}`,p);
+  }
+
+  public removeFromCart(p:any):Observable<any>{
+    return this.http.put<any>('http://localhost:8080/order/remove',p);
+  }
+
 }

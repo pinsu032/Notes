@@ -1,5 +1,5 @@
 export interface OrderDetails{
-    email:string;
+    email:any;
     category:string;
     pid:number;
     productName:string;

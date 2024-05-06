@@ -11,7 +11,9 @@ export interface Orders{
   totalPrice:number;
   creationTime:Date;
   createdBy:Date,
-  status:string
+  status:string,
+  fullName:string,
+  mobile:number
 }
 
 @Component({

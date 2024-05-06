@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../service/authentication.service';
+import { OrderDetails } from '../../contracts/OrderDetails';
 
 
 @Component({
@@ -15,6 +16,14 @@ export class ProductComponent implements OnInit {
 
     public Products:any = []; 
     public orderDetail : any = new FormBuilder();
+    public cartDetails : OrderDetails = {
+      email: undefined,
+      category: '',
+      pid: 0,
+      productName: '',
+      price: 0,
+      noOfProduct: 0
+    };
     public stockResponse : any = {};
     public product : any ={
       "pid" : 0,
@@ -27,6 +36,11 @@ export class ProductComponent implements OnInit {
     public status!:any;
     public categoryName:string = ""; 
     public title : string = "";
+    public cartCount : number = 0;
+    public productInCart : any[] = [];
+    public totalPrice : number = 0;
+    public cartFlag : boolean = false;
+    public cartNotEmpty : boolean = true;
 
   constructor(private service: IshopapiService,
     private fb : FormBuilder,private route:Router,
@@ -63,6 +77,7 @@ export class ProductComponent implements OnInit {
   
  
   ngOnInit(): void {
+    console.log("inside product component");
     this.loadProducts();
   }
 
@@ -135,9 +150,98 @@ export class ProductComponent implements OnInit {
       })
   }
 
+  addToCart(id:number){
+    this.service.addToCart(id,null).subscribe(data=>{
+      Swal.fire({
+        text:"Product Added To Cart",
+        icon:'success',
+        timer:2000
+      });
+      this.cartNotEmpty = true;
+     },
+     error => {
+      Swal.fire({
+        text:"Please try after some time",
+        icon:'info',
+        timer:2000
+      });
+     }
+   )
+  }
+
+  getCartProducts(){
+    this.cartFlag = true;
+  //  this.loadProducts();
+    this.service.loadProducts().subscribe(data =>{
+      this.Products = data;
+      console.log("this is product after call ::",this.Products)
+      this.productInCart = this.Products.filter((pr: { isInCart: boolean; }) => pr.isInCart==true);
+      console.log("card item after filter:::",this.productInCart)
+      for(let item of this.productInCart){
+        this.totalPrice += item.cartCount * item.productPrice;
+        this.cartCount = this.cartCount + item.cartCount;
+       
+      }
+      console.log("this cart count::",this.cartCount)
+      if(this.cartCount == 0){
+        this.cartNotEmpty = false;
+      }else{
+        this.cartNotEmpty = true;
+      }
+      console.log("this is all product::",this.productInCart);
+    })
+   
+   
+  }
+
+  placeOrderFromCart(){
+    for(let product of this.productInCart){
+      this.cartDetails.email = this.authService.userValue?.email;
+      this.cartDetails.category = product.category;
+      this.cartDetails.pid = product.pid;
+      this.cartDetails.productName = product.productName;
+      this.cartDetails.price = product.productPrice;
+      this.cartDetails.noOfProduct = product.cartCount;
+      console.log(this.cartDetails);
+      this.placeOrder(this.cartDetails);
+    }
+
+  }
+
+  clearAll(){
+    this.cartFlag = false;
+    this.totalPrice = 0;
+    this.cartCount = 0;
+
+  }
+
   public filterProduct(e:string){
     //console.log(`http://fakestoreapi.com/products/category/${e}`);
     //this.loadProducts(`http://fakestoreapi.com/products/category/${e}`);
+  }
+
+  public remove(p:any){
+    this.service.removeFromCart(p).subscribe(
+      data => {
+        Swal.fire({
+          text:data.msg,
+          icon:'success',
+          confirmButtonText:'Ok'
+
+        }
+        )
+        //this.Products = this.Products.filter((pr: { pid: any; }) => pr.pid==p.pid);
+        this.getCartProducts();
+      },
+
+      error => {
+        Swal.fire({
+          text:"something went wrong",
+          icon:'error',
+          confirmButtonText:'Ok'
+        })
+      }
+    )
   }
 
 }

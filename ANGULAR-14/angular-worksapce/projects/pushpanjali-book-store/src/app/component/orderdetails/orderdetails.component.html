@@ -1,26 +1,38 @@
-<div>
-    <h1 style="text-align: center;">Order Details</h1>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+
+      </div>
+      <div class="col-10">
+        <h1 style="text-align: center;">Order Details</h1>
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
-      <table width="500" border="1" bgColor="yellow">
-        <tr>
+      <table class="table table-hover">
+        <thead>
           <th>Order Id</th>
           <th>Category</th>
           <th>Product Name</th>
           <th>Total Price</th>
           <th>Creation Time</th>
+          <th>Ordered By</th>
+          <th>Mobile</th>
           <th>Action</th>
-        </tr>
-        <tr *ngFor="let or of order" bgColor="lightblue">
-          <td>{{or.orderId}}</td>
-          <td>{{or.category}}</td>
-          <td>{{or.productName}}</td>
-          <td>{{or.totalPrice | currency:'INR'}}</td>
-          <td>{{or.creationTime | date:'short'}}</td>
-          <td><button (click)="changeStatus(or.orderId)" class="btn btn-success">{{or.status}}</button>
-        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let or of order" bgColor="lightblue">
+            <td>{{or.orderId}}</td>
+            <td>{{or.category}}</td>
+            <td>{{or.productName}}</td>
+            <td>{{or.totalPrice | currency:'INR'}}</td>
+            <td>{{or.creationTime | date:'short'}}</td>
+            <td>{{or.fullName}}</td>
+            <td>{{or.mobile}}</td>
+            <td><button (click)="changeStatus(or.orderId)" class="btn btn-success">{{or.status}}</button>
+          </tr>
+        </tbody>
       </table>
-      
+      </div>
+    </div>
 </div>
